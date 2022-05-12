@@ -34,16 +34,36 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
+    // https://axios.nuxtjs.org/
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    // https://pwa.nuxtjs.org/
+    '@nuxtjs/pwa',
+    // https://auth.nuxtjs.org
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    baseURL: '/',
+    proxy: true,
+    credentials: true
+  },
+
+  proxy: {
+    '/laravel': {
+      target: 'https://restaurant-backend.binau.dev/',
+      pathRewrite: { '^/laravel': '/' }
+    }
+  },
+
+  auth: {
+    strategies: {
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+        url: '/laravel'
+      }
+    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
