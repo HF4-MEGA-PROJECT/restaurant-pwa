@@ -8,9 +8,9 @@
               <img alt="Cafe logo" class="w-16 w-16" src="../Assets/Images/Cafe_logo_png_fix.png">
             </div>
             <div class="ml-10 flex items-center">
-              <a class="button" href="../pages/index.vue">Welcome</a>
-              <a class="button" href="#">Menu</a>
-              <a class="button" href="#">Book table</a>
+              <NuxtLink class="button" to="/">Welcome</NuxtLink>
+              <NuxtLink class="button" to="/menu">Menu</NuxtLink>
+              <NuxtLink class="button" to="/book">Book table</NuxtLink>
             </div>
             <div class="-mr-2 flex md:hidden">
               <!-- Mobile menu button -->
