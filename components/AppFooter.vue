@@ -7,10 +7,8 @@
         </h1>
       </div>
       <div class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">
-        <a href="javascript:void(0)" class="focus:underline focus:outline-none hover:text-gray-500 text-base cursor-pointer leading-4 text-gray-800">Om os</a>
-        <p>
-          <a href="tel:+4533378901">TLF: +45 89 88 32 00</a>
-        </p><p><a href="mailto:kontakt@vesuvius.dk">kontakt@vesuvius.dk</a></p>
+        <p><a href="tel:+4533378901">TLF: +45 89 88 32 00</a></p>
+        <p><a href="mailto:kontakt@vesuvius.dk">kontakt@vesuvius.dk</a></p>
         <address>
           Store Gråbrødrestræde 11<br>
           5000 Odense C
