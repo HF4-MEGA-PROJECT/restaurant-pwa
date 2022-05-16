@@ -39,20 +39,19 @@ export default {
     // https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
     // https://auth.nuxtjs.org
-    '@nuxtjs/auth-next',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
     proxy: true,
     credentials: true
   },
 
   proxy: {
-    '/laravel': {
-      target: 'https://restaurant-backend.binau.dev/',
+    '/laravel/': {
+      target: 'https://restaurant-backend.binau.dev',
       pathRewrite: { '^/laravel': '/' }
     }
   },
