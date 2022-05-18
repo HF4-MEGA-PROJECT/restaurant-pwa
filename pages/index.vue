@@ -79,7 +79,7 @@
             <img
               alt="..."
               class="shadow rounded max-w-full h-auto align-middle border-none"
-              src="~/assets/Images/photo-1.jpg"
+              src="~/assets/images/photo-1.jpg"
             >
           </div>
         </div>
