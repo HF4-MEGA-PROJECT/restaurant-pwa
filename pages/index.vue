@@ -95,7 +95,7 @@ export default Vue.extend({
   name: 'IndexPage',
 
   async created () {
-    const data = (await this.$axios.get('https://restaurant-backend.binau.dev/api/setting')).data
+    const data = (await this.$axios.get(`/api/${'api/setting'}`)).data
     console.log(data)
   }
 })
