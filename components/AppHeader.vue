@@ -6,7 +6,7 @@
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <img alt="Cafe logo" class="w-16 w-16" src="../assets/images/Cafe_logo_png_fix.png">
+                <img alt="Cafe logo" class="w-16 w-16" src="~/assets/images/Cafe_logo_png_fix.png">
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline">
