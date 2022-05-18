@@ -1,18 +1,37 @@
 <template>
-  <header class="header">
-    <nav class="bg-white shadow-xl">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex ">
-            <div class="flex-shrink-0">
-              <img alt="Cafe logo" class="w-16 w-16" src="../Assets/Images/Cafe_logo_png_fix.png">
+  <div>
+    <div>
+      <nav class="bg-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <img alt="Cafe logo" class="w-16 w-16" src="../Assets/Images/Cafe_logo_png_fix.png">
+              </div>
+              <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline">
+                  <NuxtLink
+                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                    to="/"
+                  >
+                    Velkommen
+                  </NuxtLink>
+                  <NuxtLink
+                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                    to="/"
+                  >
+                    Menu
+                  </NuxtLink>
+                  <NuxtLink
+                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                    to="/"
+                  >
+                    Bestil bord
+                  </NuxtLink>
+                </div>
+              </div>
             </div>
-            <div class="ml-10 flex items-center">
-              <NuxtLink class="button" to="/">Welcome</NuxtLink>
-              <NuxtLink class="button" to="/menu">Menu</NuxtLink>
-              <NuxtLink class="button" to="/book">Book table</NuxtLink>
-            </div>
-            <div class="-mr-2 flex md:hidden">
+            <div class="-mr-2 flex md:hidden" style="margin: 8px">
               <!-- Mobile menu button -->
               <button
                 class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
@@ -48,25 +67,31 @@
             </div>
           </div>
         </div>
-      </div>
-      <div :class="[isOpen ? '' : 'hidden', 'md:hidden']">
-        <div class="px-2 pt-2 pb-3 sm:px-3">
-          <a
-            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700"
-            href="#"
-          >Menu</a>
-          <a
-            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-            href="#"
-          >About us</a>
-          <a
-            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-            href="#"
-          >Book table</a>
+        <div :class="[isOpen ? '' : 'hidden', 'md:hidden']">
+          <div class="px-2 pt-2 pb-3 sm:px-3">
+            <NuxtLink
+              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+              to="/"
+            >
+              Velkommen
+            </NuxtLink>
+            <NuxtLink
+              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+              to="/"
+            >
+              Menu
+            </NuxtLink>
+            <NuxtLink
+              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+              to="/"
+            >
+              Bestil bord
+            </NuxtLink>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -83,9 +108,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.button {
-  @apply ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-800 hover:text-black hover:bg-gray-200 focus:outline-none focus:text-black focus:bg-gray-200
-}
-</style>
