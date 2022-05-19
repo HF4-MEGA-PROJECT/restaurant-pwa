@@ -1,7 +1,10 @@
 <template>
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-5 " style="padding: 40px">
-      <div class="flex col-span-1 md:col-span-1 lg:col-span-2 justify-center" style=" border-radius: 25px; padding-bottom: 40px">
+      <div
+        class="flex col-span-1 md:col-span-1 lg:col-span-2 justify-center"
+        style=" border-radius: 25px; padding-bottom: 40px"
+      >
         <div class="relative flex flex-col" style="max-height: 100%">
           <div
             class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 overflow-hidden"
@@ -54,9 +57,6 @@
                       </p>
                     </li>
                   </ul>
-                  <p id="bottomText">
-                    Gæsterne kan enten møde op uanmeldt, eller de kan have reserveret på forhånd.
-                  </p>
                 </div>
                 <div class="pt-8 text-base font-semibold leading-7">
                   <p class="text-gray-900">
@@ -79,7 +79,7 @@
             <img
               alt="..."
               class="shadow rounded max-w-full h-auto align-middle border-none"
-              src="~/assets/Images/photo-1.jpg"
+              src="~/fosd/Images/photo-1.jpg"
             >
           </div>
         </div>
@@ -92,8 +92,14 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'IndexPage',
+
+  async created () {
+    const data = (await this.$axios.get('https://restaurant-backend.binau.dev/api/setting')).data
+    console.log(data)
+  }
 })
+
 </script>
 
 <style>
