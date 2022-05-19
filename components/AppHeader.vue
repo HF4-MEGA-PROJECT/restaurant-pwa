@@ -8,9 +8,15 @@
               <img alt="Cafe logo" class="w-16 w-16" src="../Assets/Images/Cafe_logo_png_fix.png">
             </div>
             <div class="ml-10 flex items-center">
-              <NuxtLink class="button" to="/">Welcome</NuxtLink>
-              <NuxtLink class="button" to="/menu">Menu</NuxtLink>
-              <NuxtLink class="button" to="/book">Book table</NuxtLink>
+              <NuxtLink class="button" to="/">
+                Welcome
+              </NuxtLink>
+              <NuxtLink class="button" to="/menu">
+                Menu
+              </NuxtLink>
+              <NuxtLink class="button" to="/book">
+                Book table
+              </NuxtLink>
             </div>
             <div class="-mr-2 flex md:hidden">
               <!-- Mobile menu button -->
