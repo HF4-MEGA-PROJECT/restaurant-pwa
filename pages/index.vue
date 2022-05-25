@@ -1,10 +1,7 @@
 <template>
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-5 " style="padding: 40px">
-      <div
-        class="flex col-span-1 md:col-span-1 lg:col-span-2 justify-center"
-        style=" border-radius: 25px; padding-bottom: 40px"
-      >
+      <div class="flex col-span-1 md:col-span-1 lg:col-span-2 justify-center" style=" border-radius: 25px; padding-bottom: 40px">
         <div class="relative flex flex-col" style="max-height: 100%">
           <div
             class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 overflow-hidden"
@@ -61,11 +58,11 @@
                 <div class="pt-8 text-base font-semibold leading-7">
                   <p class="text-gray-900">
                     Mandag til Fredag:
-                    <a id="weekDay">10 - 20</a>
+                    <a id="weekDay">{{ weekDay }}</a>
                   </p>
                   <p class="text-gray-900">
                     Lørdag til søndag:
-                    <a id="weekEnd">10 - 18</a>
+                    <a id="weekEnd">{{ weekEnd }}</a>
                   </p>
                 </div>
               </div>
@@ -93,16 +90,23 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage',
-
+  data () {
+    return {
+      weekDay: '',
+      weekEnd: ''
+    }
+  },
   async created () {
-    const data = (await this.$axios.get(`/api/${'api/setting'}`)).data
-    console.log(data)
+    const data = (await this.$axios.get(`/api/${'api/hours'}`)).data
+
+    this.weekDay = data.hours_weekday
+    this.weekEnd = data.hours_weekend
   }
 })
 
 </script>
 
-<style>
+<style scoped>
 * {
   border-radius: 5px;
 }

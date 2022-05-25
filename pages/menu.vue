@@ -1,44 +1,103 @@
 <template>
-  <div class="p-8 bg-gray-800">
-    <div class="grid md:grid-cols-3 gap-8 items-center justify-center justify-items-center text-center">
-      <div class="bg-white rounded border-2 border-red-500">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta placerat nunc, in porta odio tristique quis. Nulla vel consectetur.
+  <div class="container mx-auto">
+    <p class="text-4xl" style="text-align: center; padding-top: 40px">
+      Vores menu
+    </p>
+    <div class="">
+      <ul class="" style="display: flex; justify-content: center; padding-top: 20px">
+        <template v-for="category in categories">
+          <Category
+            v-if="category.category_id === null"
+            :key="category.id"
+            :category="category"
+            :class="{'font-bold': currentCategory === category.id}"
+            @category-picker="categoryPicker"
+          />
+        </template>
+      </ul>
+    </div>
+    <div class="flex flex-col" style="padding: 40px">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <template v-for="dish in dishes">
+          <Dish
+            v-if="dish.category_id === currentCategory"
+            :key="dish.id"
+            :dish="dish"
+          />
+        </template>
       </div>
-      <div class="bg-white rounded border-2 border-red-500">
-        <img src="assets/">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta placerat nunc,
-          porta odio tristique quis. Nulla vel consectetur.
-        </p>
-      </div>
-      <div class="bg-white rounded border-2 border-red-500">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta placerat nunc, in porta odio tristique quis. Nulla vel consectetur.
-        </p>
-      </div>
-      <div class="bg-white rounded border-2 border-red-500">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta placerat nunc, in porta odio tristique quis. Nulla vel consectetur.
-        </p>
-      </div>
-      <div class="bg-white rounded border-2 border-red-500">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta placerat nunc, in porta odio tristique quis. Nulla vel consectetur.
-        </p>
-      </div>
-      <div class="bg-white rounded border-2 border-red-500">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta placerat nunc, in porta odio tristique quis. Nulla vel consectetur.
-        </p>
-      </div>
+      <template v-for="subcategory in subcategories">
+        <sub-category :key="subcategory.id" :subcategory="subcategory" :dishes="dishes" :categories="categories" />
+      </template>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'MenuPage'
+  name: 'MenuPage',
+  data () {
+    return {
+      currentCategory: 1,
+      dishes: [],
+      categories: []
+    }
+  },
+
+  computed: {
+    subcategories () {
+      const subcategories = []
+      this.categories.forEach((category) => {
+        if (category.category_id === this.currentCategory) {
+          subcategories.push(category)
+        }
+      })
+
+      return subcategories
+    },
+    category_dishes () {
+      const categoryDishes = []
+      this.dishes.forEach((dish) => {
+        if (dish.category_id === this.subcategory.id) {
+          categoryDishes.push(dish)
+        }
+      })
+
+      return categoryDishes
+    }
+  },
+
+  async created () {
+    const config = {
+      headers: {
+        Accept: 'application/json'
+      }
+    }
+    try {
+      const res = await this.$axios.get(`/api/${'api/product'}`, config)
+      console.log(res.data)
+      this.dishes = res.data
+    } catch (err) {
+      console.log(err)
+    }
+
+    try {
+      const res = await this.$axios.get(`/api/${'api/category'}`, config)
+      console.log(res.data)
+      this.categories = res.data
+      this.currentCategory = this.categories.find((category) => {
+        return category.category_id === null
+      }).id
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  methods: {
+    categoryPicker (selected) {
+      this.currentCategory = selected
+    }
+  }
 })
 </script>
