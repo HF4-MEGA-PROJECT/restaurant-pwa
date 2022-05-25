@@ -54,18 +54,15 @@
                       </p>
                     </li>
                   </ul>
-                  <p id="bottomText">
-                    Gæsterne kan enten møde op uanmeldt, eller de kan have reserveret på forhånd.
-                  </p>
                 </div>
                 <div class="pt-8 text-base font-semibold leading-7">
                   <p class="text-gray-900">
                     Mandag til Fredag:
-                    <a id="weekDay">10 - 20</a>
+                    <a id="weekDay">{{ weekDay }}</a>
                   </p>
                   <p class="text-gray-900">
                     Lørdag til søndag:
-                    <a id="weekEnd">10 - 18</a>
+                    <a id="weekEnd">{{ weekEnd }}</a>
                   </p>
                 </div>
               </div>
@@ -92,11 +89,24 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data () {
+    return {
+      weekDay: '',
+      weekEnd: ''
+    }
+  },
+  async created () {
+    const data = (await this.$axios.get(`/api/${'api/hours'}`)).data
+
+    this.weekDay = data.hours_weekday
+    this.weekEnd = data.hours_weekend
+  }
 })
+
 </script>
 
-<style>
+<style scoped>
 * {
   border-radius: 5px;
 }
