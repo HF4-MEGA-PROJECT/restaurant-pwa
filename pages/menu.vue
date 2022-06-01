@@ -76,17 +76,17 @@ export default Vue.extend({
       }
     }
     try {
-      const res = await this.$axios.get(`/api/${'api/product'}`, config)
-      console.log(res.data)
-      this.dishes = res.data
+      const res = await this.$axios.get(`/api/${'api/menu'}`, config)
+      console.log(res.data.products)
+      this.dishes = res.data.products
     } catch (err) {
       console.log(err)
     }
 
     try {
-      const res = await this.$axios.get(`/api/${'api/category'}`, config)
-      console.log(res.data)
-      this.categories = res.data
+      const res = await this.$axios.get(`/api/${'api/menu'}`, config)
+      console.log(res.data.categories)
+      this.categories = res.data.categories
       this.currentCategory = this.categories.find((category) => {
         return category.category_id === null
       }).id
