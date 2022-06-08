@@ -77,7 +77,7 @@
               <div class="mb-4">
                 <date-picker v-model="time1" value-type="format" :disabled-date="disabledDates" @pick="joe" />
               </div>
-              <div class="mb-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
+              <div v-show="show2" class="mb-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
                 <template v-for="time in times">
                   <Times
                     :key="time.endTime + time.startTime"
@@ -92,8 +92,8 @@
               <div v-if="isSuccess" class="success">
                 Tak for din reservation, du kan nu forlade siden :)
               </div>
-              <button v-show="show" type="submit">
-                Submit
+              <button v-show="show" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                Bekræft
               </button>
             </form>
           </div>
@@ -116,6 +116,7 @@ export default {
     return {
       loading: true,
       show: true,
+      show2: false,
       name: '',
       email: '',
       phone: '',
@@ -189,6 +190,7 @@ export default {
       return d.includes(date)
     },
     async joe (date) {
+      this.show2 = 'true'
       const d = new Date(date)
       console.log(d)
       console.log(d.getFullYear(), d.getMonth() + 1, d.getDate())
