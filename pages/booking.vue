@@ -22,6 +22,7 @@
                     placeholder=" "
                     maxlength="40"
                     required=""
+                    @keydown.enter.prevent
                   >
                   <label for="floating_name" class="peer-focus:font-medium  text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Navn</label>
                 </div>
@@ -35,6 +36,7 @@
                     placeholder=" "
                     maxlength="60"
                     required
+                    @keydown.enter.prevent
                   >
                   <label for="floating_email" class="peer-focus:font-medium  text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">E-mail</label>
                 </div>
@@ -50,6 +52,7 @@
                       minlength="8"
                       maxlength="8"
                       required
+                      @keydown.enter.prevent
                     >
                     <label for="floating_phone" class="peer-focus:font-medium  text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Mobil</label>
                   </div>
@@ -68,6 +71,7 @@
                   min="1"
                   max="15"
                   required
+                  @keydown.enter.prevent
                 >
               </div>
               <div class="mb-4">
