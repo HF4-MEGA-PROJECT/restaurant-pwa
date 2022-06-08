@@ -37,16 +37,18 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    // https://github.com/avil13/vue-sweetalert2
+    'vue-sweetalert2/nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true,
+    proxy: true
   },
 
   proxy: {
-    '/api/': { target: 'https://restaurant-backend.binau.dev/', pathRewrite: {'^/api/': ''}, changeOrigin: true }
+    '/api/': { target: 'https://restaurant-backend.binau.dev/', pathRewrite: { '^/api/': '' }, changeOrigin: true }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

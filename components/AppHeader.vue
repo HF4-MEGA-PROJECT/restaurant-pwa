@@ -24,7 +24,7 @@
                   </NuxtLink>
                   <NuxtLink
                     class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800  hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
-                    to="/"
+                    to="/booking"
                   >
                     Bestil bord
                   </NuxtLink>
